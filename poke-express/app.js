@@ -10,19 +10,18 @@ import cors from "cors";
 
 
 const app = express();
+app.use(cors());
+
 
 app.set("db", async (collection) => {
   const mongo = await connect();
   return mongo.db("local").collection(collection);
 });
 
-app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(path.resolve(), "public")));
 
-app.use("/", indexRouter);
 app.use("/pokemoncards", cardRouter);
 
 // catch 404 and forward to error handler
