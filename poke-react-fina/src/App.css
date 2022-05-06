@@ -1,4 +1,6 @@
 .App {
+  background-color: #282c34;
+
   text-align: center;
 }
 
@@ -19,14 +21,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 4em;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.App-ul {
+ list-style: none;
+
 }
+
+.Link {
+  background-image: linear-gradient(white, gray 98%, black);
+
+}
+.Link2 {
+  background-image: linear-gradient(black, gray 2% ,white );
+
+}
+
+
+.Linklink1 {
+  -webkit-background-clip: text;
+	background-clip: text;
+	background-image: url('../images/Charmander.jpg');
+	color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+.Linklink2 {
+  -webkit-background-clip: text;
+	background-clip: text;
+	background-image: url('../images/Squirtle.jpg');
+	color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+
+
+}
+
 
 @keyframes App-logo-spin {
   from {
