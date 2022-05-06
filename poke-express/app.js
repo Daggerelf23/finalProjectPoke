@@ -1,18 +1,19 @@
 import createError from "http-errors";
 import express from "express";
 import path from "path";
-import cookieParser from "cookie-parser";
-import logger from "morgan";
 
-import { indexRouter } from "./routes/index.js";
+
+import { cardRouter} from "./routes/Card.js";
 import { usersRouter } from "./routes/users.js";
 import connect from "./lib/db.js";
+import cors from "cors";
+
 
 const app = express();
 
 app.set("db", async (collection) => {
   const mongo = await connect();
-  return mongo.db("mongodb_lab").collection(collection);
+  return mongo.db("local").collection(collection);
 });
 
 app.use(logger("dev"));
@@ -22,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(path.resolve(), "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/pokemoncards", cardRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
