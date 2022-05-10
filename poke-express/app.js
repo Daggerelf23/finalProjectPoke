@@ -3,8 +3,8 @@ import express from "express";
 import path from "path";
 
 
-import { cardRouter} from "./routes/Card.js";
-import { usersRouter } from "./routes/users.js";
+import { projectRouter} from "./routes/Project";
+import { todoRouter } from "./routes/Todo";
 import connect from "./lib/db.js";
 import cors from "cors";
 
@@ -22,7 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(path.resolve(), "public")));
 
-app.use("/pokemoncards", cardRouter);
+
+app.use("/projects", projectRouter)
+app.use("/todo", todoRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

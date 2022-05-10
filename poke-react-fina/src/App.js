@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <ul className = "App-ul">
           <li className = "Link"><Link className = "Linklink1" to ="/">Home</Link></li>
-          <li className = "Link2"><Link className = "Linklink2" to ="/pokemoncards">Pokemon Cards</Link></li>
+          <li className = "Link2"><Link className = "Linklink2" to ="/projects">Projects</Link></li>
         </ul>
        </header>
 
