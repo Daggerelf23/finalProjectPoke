@@ -3,8 +3,8 @@ import express from "express";
 import path from "path";
 
 
-import { projectRouter} from "./routes/Project";
-import { todoRouter } from "./routes/Todo";
+import { projectRouter} from "./routes/Project.js";
+import { todoRouter } from "./routes/Todo.js";
 import connect from "./lib/db.js";
 import cors from "cors";
 
@@ -23,8 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(path.resolve(), "public")));
 
 
+todoRouter.mergeParams = true;
+projectRouter.use("/:project_id/todos", todoRouter)
 app.use("/projects", projectRouter)
-app.use("/todo", todoRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
